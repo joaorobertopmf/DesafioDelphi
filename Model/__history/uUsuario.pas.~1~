@@ -1,0 +1,23 @@
+unit uUsuario;
+
+interface
+
+type
+
+TUsuario = class
+private
+  { private declarations }
+protected
+  { protected declarations }
+public
+  property Salario: Currency;
+  property DataNascimento: TDate;
+  property Sexo: Char;
+  property TipoAposentadoria: Char;
+published
+  { published declarations }
+end;
+
+implementation
+
+end.

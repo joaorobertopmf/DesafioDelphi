@@ -1,0 +1,51 @@
+unit uSimulacaoController;
+
+interface
+
+uses uDMSimulacao, uSimulacao, System.SysUtils, uDadosUsuario,
+  System.Generics.Collections;
+
+type
+
+TSimulacaoController = class
+private
+  FSimulacoes: TObjectList<TSimulacao>;
+protected
+  { protected declarations }
+public
+  constructor Create;
+  destructor Destroy; override;
+  function Inserir(pSimulacao: TSimulacao; var pMsgErro: string): boolean;
+  function Pesquisar: TObjectList<TSimulacao>;
+end;
+
+implementation
+
+{ TSimulacaoController }
+
+constructor TSimulacaoController.Create;
+begin
+  FDMSimulacao := TDMSimulacao.Create(nil);
+end;
+
+destructor TSimulacaoController.Destroy;
+begin
+  if Assigned(FDMSimulacao) then
+    FreeAndNil(FDMSimulacao);
+
+  inherited;
+end;
+
+
+function TSimulacaoController.Inserir(pSimulacao: TSimulacao; var pMsgErro: string): boolean;
+begin
+  Result := FDMSimulacao.Inserir(pSimulacao, pMsgErro);
+end;
+
+
+function TSimulacaoController.Pesquisar: TObjectList<TSimulacao>;
+begin
+  Result := DMSimulacao.Pesquisar;
+end;
+
+end.

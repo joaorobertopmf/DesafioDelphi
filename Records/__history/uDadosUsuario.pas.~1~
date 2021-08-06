@@ -1,0 +1,24 @@
+unit uDadosUsuario;
+
+interface
+
+type
+
+TDadosUsuarioRec = record
+  DataNascimento: TDateTime;
+  TipoAposentadoria: Char;
+  Salario: Currency;
+  Sexo: Char;
+  procedure InicializarValores;
+end;
+
+implementation
+
+{ TDadosUsuarioRec }
+
+procedure TDadosUsuarioRec.InicializarValores;
+begin
+  Self:= Default(TDadosUsuarioRec);
+end;
+
+end.

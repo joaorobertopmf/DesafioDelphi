@@ -1,0 +1,15 @@
+unit uIBaseEntity;
+
+interface
+
+type
+
+IBaseEntity<T> = interface
+  procedure Inserir(AEntidade: T; var sMsgErro: string);
+  procedure Alterar(AEntidade: T; var sMsgErro: string);
+  procedure Excluir(AEntidade: T; var sMsgErro: string);
+end;
+
+implementation
+
+end.

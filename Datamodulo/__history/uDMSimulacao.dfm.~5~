@@ -1,0 +1,60 @@
+object DMSimulacao: TDMSimulacao
+  Left = 0
+  Top = 0
+  ClientHeight = 111
+  ClientWidth = 199
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object FQryConsultar: TFDQuery
+    Connection = DMConexao.DesafiodelphiConnection
+    SQL.Strings = (
+      'SELECT * FROM TB_SIMULACAO;')
+    Left = 88
+    Top = 8
+    object FQryConsultarID_SIMULACAO: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'ID_SIMULACAO'
+      Origin = 'ID_SIMULACAO'
+      Required = True
+    end
+    object FQryConsultarQUANTIDADE: TIntegerField
+      FieldName = 'QUANTIDADE'
+      Origin = 'QUANTIDADE'
+      Required = True
+    end
+    object FQryConsultarDATA_ULTIMA_CONTRIBUICAO: TDateField
+      FieldName = 'DATA_ULTIMA_CONTRIBUICAO'
+      Origin = 'DATA_ULTIMA_CONTRIBUICAO'
+      Required = True
+    end
+    object FQryConsultarVALOR: TFloatField
+      FieldName = 'VALOR'
+      Origin = 'VALOR'
+      Required = True
+    end
+    object FQryConsultarPERCENTUAL: TFloatField
+      FieldName = 'PERCENTUAL'
+      Origin = 'PERCENTUAL'
+      Required = True
+    end
+  end
+  object FQryInserir: TFDQuery
+    Connection = DMConexao.DesafiodelphiConnection
+    SQL.Strings = (
+      'SELECT * FROM TB_SIMULACAO;')
+    Left = 88
+    Top = 64
+  end
+  object FDUpdateSQL1: TFDUpdateSQL
+    Connection = DMConexao.DesafiodelphiConnection
+    Left = 144
+    Top = 64
+  end
+end

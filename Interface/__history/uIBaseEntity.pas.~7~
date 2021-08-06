@@ -1,0 +1,17 @@
+﻿unit uIBaseEntity;
+
+interface
+
+type
+
+IEntidadeBase<T> = interface
+['{D44ABB89-40B1-4950-A87A-11F8CF4ED007}']
+  procedure Inserir(AEntidade: T; var sMsgErro: string);
+  procedure Alterar(AEntidade: T; var sMsgErro: string);
+  procedure Excluir(AEntidade: T; var sMsgErro: string);
+  function  ListarTodos: TObjectList<T>;
+end;
+
+implementation
+
+end.

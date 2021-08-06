@@ -1,0 +1,37 @@
+unit FrmUsuario;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.ExtCtrls,
+  System.ImageList, Vcl.ImgList;
+
+type
+  TFrmDadosUsuario = class(TForm)
+    PnlDadosUsuario: TPanel;
+    LblSalario: TLabel;
+    LblDataNascimento: TLabel;
+    LblSexo: TLabel;
+    Label4: TLabel;
+    ComboBox1: TComboBox;
+    ComboBox2: TComboBox;
+    Label5: TLabel;
+    BtnIrParaSimulacao: TButton;
+    EdtDataNascimento: TMaskEdit;
+    EdtSalario: TEdit;
+    ImgLstImagens: TImageList;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmUsuario: TFrmDadosUsuario;
+
+implementation
+
+{$R *.dfm}
+
+end.

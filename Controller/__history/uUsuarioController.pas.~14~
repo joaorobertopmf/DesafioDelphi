@@ -1,0 +1,47 @@
+unit uUsuarioController;
+
+interface
+
+uses uDadosUsuario;
+
+type
+
+TUsuarioController = class
+private
+  { private declarations }
+protected
+  { protected declarations }
+public
+  procedure ValidarCampos(DadosUsuario: TDadosUsuario);
+published
+  { published declarations }
+end;
+
+implementation
+
+uses
+  System.SysUtils, uEDataInvalidaException, System.DateUtils,
+  uEValidaDadosUsuarioException;
+
+{ TUsuarioController }
+
+procedure TUsuarioController.ValidarCampos(DadosUsuario: TDadosUsuario);
+begin
+  if DadosUsuario.DataNascimento >= Now then
+    raise EDataInvalidaException.Create('Data de nascimento não pode ser maior que a data atual');
+
+  if DadosUsuario.DataPrimeiraContribuicao < DadosUsuario.DataNascimento then
+    raise EDataInvalidaException.Create('A data de contribuição deve ser maior que a data de nascimento');
+
+  if DadosUsuario.Sexo = 'M' then
+  begin
+    if ((DadosUsuario.TipoAposentadoria = 'N') and (YearsBetween(Now, DadosUsuario.DataNascimento) >= 67) or
+        ((DadosUsuario.TipoAposentadoria = 'R') and (YearsBetween(Now, DadosUsuario.DataNascimento) >= 63))) then
+    begin
+      raise EValidaDadosUsuarioException.Create('O Contribuinte já encontra-se aposentado');
+    end;
+  end;
+
+end;
+
+end.

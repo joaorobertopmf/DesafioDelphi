@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{CEB41374-4744-43DD-8AB7-07538C851A7A}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="DesafioDelphi.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Test\TestDesafioDelphi.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="DesafioDelphi">
+        <MSBuild Projects="DesafioDelphi.dproj"/>
+    </Target>
+    <Target Name="DesafioDelphi:Clean">
+        <MSBuild Projects="DesafioDelphi.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DesafioDelphi:Make">
+        <MSBuild Projects="DesafioDelphi.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TestDesafioDelphi">
+        <MSBuild Projects="Test\TestDesafioDelphi.dproj"/>
+    </Target>
+    <Target Name="TestDesafioDelphi:Clean">
+        <MSBuild Projects="Test\TestDesafioDelphi.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TestDesafioDelphi:Make">
+        <MSBuild Projects="Test\TestDesafioDelphi.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="DesafioDelphi;TestDesafioDelphi"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="DesafioDelphi:Clean;TestDesafioDelphi:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="DesafioDelphi:Make;TestDesafioDelphi:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

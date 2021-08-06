@@ -1,0 +1,19 @@
+object DMSimulacao: TDMSimulacao
+  OldCreateOrder = False
+  Height = 150
+  Width = 215
+  object FQryConsultar: TFDQuery
+    Connection = DMConexao.DesafiodelphiConnection
+    SQL.Strings = (
+      'SELECT * FROM TB_SIMULACAO;')
+    Left = 88
+    Top = 8
+  end
+  object FQryInserir: TFDQuery
+    Connection = DMConexao.DesafiodelphiConnection
+    SQL.Strings = (
+      'SELECT * FROM TB_SIMULACAO;')
+    Left = 88
+    Top = 64
+  end
+end
