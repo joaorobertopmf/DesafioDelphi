@@ -82,9 +82,6 @@ function TDMSimulacao.Excluir(Simulacao: TSimulacao; out MsgErro: string): Boole
 begin
   Result := True;
 
-  if not FQryExcluir.Active then
-    FQryExcluir.Close;
-
   try
     FQryExcluir.ParamByName('ID_SIMULACAO').AsInteger := Simulacao.IDSimulacao;
     FQryExcluir.Prepare;
@@ -102,9 +99,6 @@ function TDMSimulacao.Inserir(Simulacao: TSimulacao;
   out MsgErro: string): Boolean;
 begin
   Result := True;
-
-  if not FQryInserir.Active then
-    FQryInserir.Close;
 
   try
     FQryInserir.ParamByName('QUANTIDADE').AsInteger                 := Simulacao.QtdeContribuicoes;
